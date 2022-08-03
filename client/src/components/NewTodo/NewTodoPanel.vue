@@ -48,8 +48,6 @@ export default defineComponent({
     },
 
     createTodo (): void {
-      // TODO: validate title
-
       // TODO: create todo
       const { title, dueDate, description } = this.form
       const todo: Todo = {

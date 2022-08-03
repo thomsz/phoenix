@@ -3,6 +3,7 @@
     {{ item.title }}
     {{ item.description || '' }}
     {{ item.dueDate || '' }}
+    <button @click="$emit('delete-item-clicked')">Delete</button>
   </div>
 </template>
 
