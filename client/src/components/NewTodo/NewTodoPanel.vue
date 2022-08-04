@@ -53,8 +53,8 @@ export default defineComponent({
       const todo: Todo = {
         id: uuid(),
         title,
+        description,
         ...(dueDate && { dueDate: new Date(dueDate) }),
-        ...(description && { description })
       }
 
       this.resetForm()
