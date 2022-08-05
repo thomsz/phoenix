@@ -1,6 +1,14 @@
 <template>
-  <article class="hover:cursor-pointer hover:bg-slate-50 transition-colors duration-300">
+  <article
+    class="hover:cursor-pointer hover:bg-slate-50 transition-colors duration-300"
+    :class="{ 'opacity-25': item.done }"
+  >
     <div class="flex justify-between items-center h-12">
+      <input
+        type="checkbox"
+        class="mx-2 h-full w-7 accent-green-600 hover:cursor-pointer"
+        v-model="form.done"
+      />
       <EditInPlaceField
         name="title"
         v-model="form.title"

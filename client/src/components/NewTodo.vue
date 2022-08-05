@@ -86,6 +86,7 @@ export default defineComponent({
       const { title, dueDate, description } = this.form
       const todo: Todo = {
         id: uuid(),
+        done: false,
         title,
         description,
         ...(dueDate && { dueDate: new Date(dueDate) }),
