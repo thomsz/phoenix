@@ -81,18 +81,21 @@ export default defineComponent({
           id: '1',
           done: false,
           title: 'Item 1',
+          dueDate: null,
           description: 'Item 1 description'
         },
         {
           id: '2',
           done: false,
           title: 'Item 2',
+          dueDate: null,
           description: 'Item 2 description'
         },
         {
           id: '3',
           done: false,
           title: 'Item 3',
+          dueDate: null,
           description: 'Item 3 description'
         }
       ]

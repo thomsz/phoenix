@@ -21,7 +21,9 @@
       @click="toggleEdit"
       @mouseover="toggleEdit"
     >
-      {{ modelValue }}
+      <slot>
+        {{ modelValue || '-' }}
+      </slot>
     </div>
   </div>
 </template>

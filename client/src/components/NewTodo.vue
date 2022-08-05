@@ -88,8 +88,8 @@ export default defineComponent({
         id: uuid(),
         done: false,
         title,
-        description,
-        ...(dueDate && { dueDate: new Date(dueDate) }),
+        dueDate: dueDate ? new Date(dueDate) : null,
+        description
       }
 
       this.resetForm()

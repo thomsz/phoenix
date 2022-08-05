@@ -38,7 +38,9 @@
         name="due_date"
         type="date"
         v-model="form.dueDate"
-      />
+      >
+        {{ formattedLocaleDueDate }}
+      </EditInPlaceField>
     </div>
   </article>
 </template>
@@ -66,15 +68,33 @@ export default defineComponent({
   },
 
   data () {
+    const getFormattedDueDate = (): string | undefined => this.item.dueDate?.toISOString().split('T')[0]
     return {
-      form: this.item,
+      form: {
+        ...this.item,
+        dueDate: getFormattedDueDate() || ''
+      },
       expanded: false
     }
   },
 
-  methods: {
-    onItemChange (): void {
-      this.$emit('item-changed', this.form)
+  computed: {
+    formattedLocaleDueDate (): string | undefined {
+      return this.item.dueDate?.toLocaleDateString()
+    }
+  },
+
+  watch: {
+    form: {
+      deep: true,
+      handler (form) {
+        const preparedPayload = {
+          ...form,
+          dueDate: form.dueDate ? new Date(form.dueDate) : null
+        }
+
+        this.$emit('item-changed', preparedPayload)
+      }
     }
   }
 })
