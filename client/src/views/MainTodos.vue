@@ -106,6 +106,6 @@ export default defineComponent({
 
 <style>
 main {
-  @apply w-[40rem] mx-auto my-16 flex flex-col space-y-4;
+  @apply md:w-[40rem] px-2 md:px-0 mx-auto my-4 md:my-16 flex flex-col space-y-4;
 }
 </style>
