@@ -41,12 +41,21 @@
             v-model="form.dueDate"
           />
         </label>
-        <button
-          class="bg-blue-100 hover:bg-blue-200 h-12 px-3 rounded-md font-bold uppercase text-white transition-colors duration-500"
-          :class="{ 'bg-blue-400 hover:bg-blue-500': form.title }"
-        >
-          Create task
-        </button>
+        <div class="w-full flex gap-2">
+          <button
+            class="action bg-blue-100 hover:bg-blue-200 grow"
+            :class="{ 'bg-blue-400 hover:bg-blue-500': form.title }"
+          >
+            Create task
+          </button>
+          <button
+            type="button"
+            class="action w-12 bg-gray-200 hover:bg-gray-300"
+            @click="expanded = false"
+          >
+            <XIcon class="icon" />
+          </button>
+        </div>
       </div>
     </Transition>
   </form>
@@ -55,6 +64,7 @@
 <script lang="ts">
 import { v4 as uuid } from 'uuid'
 import { defineComponent } from 'vue'
+import { XIcon } from '@heroicons/vue/solid'
 
 import ReturnIcon from '@/components/icons/ReturnIcon.vue'
 
@@ -64,6 +74,7 @@ export default defineComponent({
   name: 'NewTodo',
 
   components: {
+    XIcon,
     ReturnIcon
   },
 
@@ -112,6 +123,11 @@ export default defineComponent({
 <style scoped>
 form {
   @apply flex flex-col relative z-10;
+}
+
+button.action {
+  @apply flex justify-center items-center h-12 px-3 rounded-md font-bold uppercase text-white transition-colors
+    duration-500;
 }
 
 .fade-enter-active {

@@ -6,3 +6,7 @@ input,
 textarea {
   @apply outline-none;
 }
+
+.icon {
+  @apply w-4;
+}

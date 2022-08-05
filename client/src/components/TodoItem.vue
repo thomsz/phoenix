@@ -107,8 +107,4 @@ export default defineComponent({
 button.action {
   @apply h-7 px-2 m-2 text-slate-300 hover:text-white hover:bg-slate-400 rounded transition-colors;
 }
-
-button.action .icon {
-  @apply w-4;
-}
 </style>
