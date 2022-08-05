@@ -1,19 +1,23 @@
 <template>
-  <NewTodoPanel @todo-created="addItem" />
-  <TodoItem
-    v-for="item in todos"
-    :key="item.id"
-    :item="item"
-    @item-changed="updateItem"
-    @delete-item-clicked="deleteItem(item)"
-  />
+  <main>
+    <NewTodo @todo-created="addItem" />
+    <div class="list">
+      <TodoItem
+        v-for="item in todos"
+        :key="item.id"
+        :item="item"
+        @item-changed="updateItem"
+        @delete-item-clicked="deleteItem(item)"
+      />
+    </div>
+  </main>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
 
+import NewTodo from '@/components/NewTodo.vue'
 import TodoItem from '@/components/TodoItem.vue'
-import NewTodoPanel from '@/components/NewTodo/NewTodoPanel.vue'
 
 import type Todo from '@/types/Todo'
 
@@ -21,8 +25,8 @@ export default defineComponent({
   name: 'MainTodos',
 
   components: {
-    TodoItem,
-    NewTodoPanel
+    NewTodo,
+    TodoItem
   },
 
   data: () => ({
@@ -73,3 +77,9 @@ export default defineComponent({
   }
 })
 </script>
+
+<style>
+main {
+  @apply w-[40rem] mx-auto my-16 flex flex-col space-y-4;
+}
+</style>

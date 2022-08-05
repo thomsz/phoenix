@@ -1,20 +1,38 @@
 <template>
-  <div>
-    <EditInPlaceField
-      name="title"
-      v-model="form.title"
-    />
-    <EditInPlaceField
-      name="description"
-      v-model="form.description"
-    />
-    <EditInPlaceField
-      name="due_date"
-      type="date"
-      v-model="form.dueDate"
-    />
-    <button @click="$emit('delete-item-clicked')">Delete</button>
-  </div>
+  <article class="hover:cursor-pointer hover:bg-slate-50 transition-colors duration-300">
+    <div class="flex justify-between items-center h-12">
+      <EditInPlaceField
+        name="title"
+        v-model="form.title"
+      />
+      <button
+        class="action"
+        @click="expanded = !expanded"
+      >
+        Details
+      </button>
+      <button
+        class="action"
+        @click="$emit('delete-item-clicked')"
+      >
+        Delete
+      </button>
+    </div>
+    <div
+      v-if="expanded"
+      class="p-4"
+    >
+      <EditInPlaceField
+        name="description"
+        v-model="form.description"
+      />
+      <EditInPlaceField
+        name="due_date"
+        type="date"
+        v-model="form.dueDate"
+      />
+    </div>
+  </article>
 </template>
 
 <script lang="ts">
@@ -41,7 +59,8 @@ export default defineComponent({
 
   data () {
     return {
-      form: this.item
+      form: this.item,
+      expanded: false
     }
   },
 
@@ -52,3 +71,9 @@ export default defineComponent({
   }
 })
 </script>
+
+<style scoped>
+button.action {
+  @apply h-7 px-2 rounded bg-blue-50 border-2 border-blue-200 m-2 text-blue-900 font-bold;
+}
+</style>

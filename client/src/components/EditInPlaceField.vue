@@ -1,24 +1,28 @@
 <template>
-  <form
-    v-if="edit"
-    :name="`edit_in_place__${name}`"
-    @submit.prevent="toggleEdit"
-  >
-    <input
-      v-model="innerValue"
-      :name="name"
-      :type="type"
-      @focus="lockEdit"
-      @focusout="submit"
-      @mouseleave="toggleUnlockedEdit"
-    />
-  </form>
-  <div
-    v-else
-    @click="toggleEdit"
-    @mouseover="toggleEdit"
-  >
-    {{ modelValue }}
+  <div class="edit-in-place">
+    <form
+      v-if="edit"
+      :name="`edit_in_place__${name}`"
+      @submit.prevent="toggleEdit"
+    >
+      <input
+        v-model="innerValue"
+        class="text-slate-400 w-full h-full px-2 bg-transparent"
+        :name="name"
+        :type="type"
+        @focus="lockEdit"
+        @focusout="submit"
+        @mouseleave="toggleUnlockedEdit"
+      />
+    </form>
+    <div
+      v-else
+      class="px-2 text-slate-500"
+      @click="toggleEdit"
+      @mouseover="toggleEdit"
+    >
+      {{ modelValue }}
+    </div>
   </div>
 </template>
 
@@ -82,3 +86,10 @@ export default defineComponent({
   }
 })
 </script>
+
+<style scoped>
+.edit-in-place,
+.edit-in-place > * {
+  @apply w-full h-full flex items-center;
+}
+</style>
