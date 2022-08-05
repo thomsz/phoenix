@@ -4,7 +4,7 @@
     name="new_todo"
     @submit.prevent="createTodo"
   >
-    <div>
+    <div class="flex">
       <input
         name="title"
         class="w-full h-16 text-2xl px-2"
@@ -12,6 +12,10 @@
         required
         placeholder="Add a new task..."
         @focus="expanded = true"
+      />
+      <ReturnIcon
+        v-if="expanded"
+        class="w-10 mx-2 fill-slate-100 hidden md:block"
       />
     </div>
     <Transition name="fade">
@@ -52,10 +56,16 @@
 import { v4 as uuid } from 'uuid'
 import { defineComponent } from 'vue'
 
+import ReturnIcon from '@/components/icons/ReturnIcon.vue'
+
 import type Todo from '@/types/Todo'
 
 export default defineComponent({
   name: 'NewTodo',
+
+  components: {
+    ReturnIcon
+  },
 
   data: () => ({
     expanded: false,

@@ -17,13 +17,13 @@
         class="action"
         @click="expanded = !expanded"
       >
-        Details
+        <MenuAlt1Icon class="icon" />
       </button>
       <button
         class="action"
         @click="$emit('delete-item-clicked')"
       >
-        Delete
+        <TrashIcon class="icon" />
       </button>
     </div>
     <div
@@ -47,6 +47,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { TrashIcon, MenuAlt1Icon } from '@heroicons/vue/solid'
 
 import EditInPlaceField from '@/components/EditInPlaceField.vue'
 
@@ -57,6 +58,8 @@ export default defineComponent({
   name: 'TodoItem',
 
   components: {
+    TrashIcon,
+    MenuAlt1Icon,
     EditInPlaceField
   },
 
@@ -102,6 +105,10 @@ export default defineComponent({
 
 <style scoped>
 button.action {
-  @apply h-7 px-2 rounded bg-blue-50 border-2 border-blue-200 m-2 text-blue-900 font-bold;
+  @apply h-7 px-2 m-2 text-slate-300 hover:text-white hover:bg-slate-400 rounded transition-colors;
+}
+
+button.action .icon {
+  @apply w-4;
 }
 </style>
