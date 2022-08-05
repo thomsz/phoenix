@@ -1,6 +1,5 @@
  <template>
   <form
-    ref="newTodo"
     name="new_todo"
     @submit.prevent="createTodo"
   >
@@ -70,6 +69,12 @@ import ReturnIcon from '@/components/icons/ReturnIcon.vue'
 
 import type Todo from '@/types/Todo'
 
+const generateForm = () => ({
+  title: '',
+  dueDate: '',
+  description: ''
+})
+
 export default defineComponent({
   name: 'NewTodo',
 
@@ -80,11 +85,7 @@ export default defineComponent({
 
   data: () => ({
     expanded: false,
-    form: {
-      title: '',
-      dueDate: '',
-      description: ''
-    }
+    form: generateForm()
   }),
 
   watch: {
@@ -97,9 +98,8 @@ export default defineComponent({
 
   methods: {
     resetForm (): void {
-      // TODO: typing
-      (this.$refs.newTodo as any).reset()
       this.expanded = false
+      this.form = generateForm()
     },
 
     createTodo (): void {
