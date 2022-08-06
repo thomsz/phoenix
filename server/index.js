@@ -1,3 +1,4 @@
+require('dotenv').config()
 const cors = require('cors')
 const express = require('express')
 const bodyParser = require('body-parser')
@@ -6,7 +7,7 @@ const router = require('./endpoints')
 const database = require('./database')
 
 const app = express()
-const PORT = 3000
+const PORT = process.env.PORT || 3000
 
 database.init()
 app.use(cors())

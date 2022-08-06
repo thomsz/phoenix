@@ -5,11 +5,12 @@
   "main": "index.js",
   "scripts": {
     "dev": "concurrently \"cd server && npm run dev\" \"cd client && npm run dev\"",
-		"install:all": "concurrently \"cd server && npm i\" \"cd client && npm i\""
+    "install:all": "concurrently \"cd server && npm i\" \"cd client && npm i\""
   },
   "author": "Tom Segev",
   "license": "ISC",
   "dependencies": {
-    "concurrently": "^7.3.0"
+    "concurrently": "^7.3.0",
+    "dotenv": "^16.0.1"
   }
 }
