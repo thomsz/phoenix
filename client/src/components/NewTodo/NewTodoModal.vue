@@ -1,12 +1,12 @@
 <template>
-  <div class="flex flex-col space-y-3 absolute w-full bg-white/90 backdrop-blur-sm top-16">
+  <div class="flex flex-col space-y-3 absolute w-full bg-white/80 backdrop-blur-sm top-16">
     <hr />
     <textarea
       name="description"
       rows="5"
-      class="w-full p-2 bg-transparent"
+      class="w-full p-2 bg-transparent border-slate-100 border-b-2"
       v-model="form.description"
-      placeholder="Description..."
+      placeholder="Description…"
     >
     </textarea>
     <label class="px-2 text-gray-400 hover:cursor-pointer">

@@ -17,7 +17,7 @@
     </form>
     <div
       v-else
-      class="px-2 text-slate-500"
+      class="p-2 text-slate-500 whitespace-pre-wrap"
       @click="toggleEdit"
       @mouseover="toggleEdit"
     >

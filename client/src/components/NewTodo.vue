@@ -9,7 +9,7 @@
         class="w-full h-16 text-2xl px-2"
         v-model="form.title"
         required
-        placeholder="Add a new task..."
+        placeholder="Add a new task…"
         @focus="expanded = true"
       />
       <ReturnIcon
