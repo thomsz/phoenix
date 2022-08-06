@@ -28,7 +28,7 @@
 </template>
 
 <script lang="ts">
-import { v4 as uuid } from 'uuid'
+import request from '@/services/request'
 import { defineComponent } from 'vue'
 
 import ReturnIcon from '@/components/icons/ReturnIcon.vue'
@@ -69,19 +69,25 @@ export default defineComponent({
       this.form = generateForm()
     },
 
-    createTodo (): void {
-      // TODO: create todo
+    async createTodo (): Promise<void> {
       const { title, dueDate, description } = this.form
-      const todo: Todo = {
-        id: uuid(),
+      const item: Omit<Todo, 'id'> = {
         done: false,
         title,
-        dueDate: dueDate ? new Date(dueDate) : null,
+        dueDate: dueDate ? new Date(dueDate).toISOString() : '',
         description
       }
 
-      this.resetForm()
-      this.$emit('todo-created', todo)
+      try {
+        const response = await request.post('tasks', item)
+        const createdItem = response.data
+
+        this.resetForm()
+        this.$emit('todo-created', createdItem)
+      } catch (error) {
+        console.error(error)
+      }
+
     }
   }
 })

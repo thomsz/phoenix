@@ -89,7 +89,7 @@ export default defineComponent({
   },
 
   data () {
-    const getFormattedDueDate = (): string | undefined => this.item.dueDate?.toISOString().split('T')[0]
+    const getFormattedDueDate = (): string | undefined => this.item.dueDate.split('T')[0]
     return {
       form: {
         ...this.item,
@@ -101,7 +101,7 @@ export default defineComponent({
 
   computed: {
     formattedLocaleDueDate (): string | undefined {
-      return this.item.dueDate?.toLocaleDateString()
+      return new Date(this.item.dueDate).toLocaleDateString()
     }
   },
 
@@ -111,7 +111,7 @@ export default defineComponent({
       handler (form) {
         const preparedPayload = {
           ...form,
-          dueDate: form.dueDate ? new Date(form.dueDate) : null
+          dueDate: form.dueDate ? new Date(form.dueDate) : ''
         }
 
         this.$emit('item-changed', preparedPayload)

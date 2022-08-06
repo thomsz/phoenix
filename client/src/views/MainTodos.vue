@@ -24,6 +24,7 @@
 </template>
 
 <script lang="ts">
+import request from '@/services/request'
 import { defineComponent } from 'vue'
 
 import NewTodo from '@/components/NewTodo.vue'
@@ -54,7 +55,7 @@ export default defineComponent({
   },
 
   mounted (): void {
-    this.fetchTodos()
+    this.fetchItems()
   },
 
   methods: {
@@ -62,43 +63,33 @@ export default defineComponent({
       this.todos.push(item)
     },
 
-    updateItem (item: Todo): void {
-      // TODO: update item
-      const itemIndex = this.todos.findIndex((todo: Todo) => todo.id == item.id)
-      this.todos[itemIndex] = item
+    async updateItem (item: Todo): Promise<void> {
+      try {
+        await request.put(`tasks/${item.id}`, item)
+        const itemIndex = this.todos.findIndex((todo: Todo) => todo.id == item.id)
+        this.todos[itemIndex] = item
+      } catch (error) {
+        console.error(error)
+      }
     },
 
-    deleteItem (item: Todo): void {
-      // TODO: delete item
-      const itemIndex = this.todos.findIndex((todo: Todo) => todo.id == item.id)
-      this.todos.splice(itemIndex, 1)
+    async deleteItem (item: Todo): Promise<void> {
+      try {
+        await request.delete(`tasks/${item.id}`)
+        const itemIndex = this.todos.findIndex((todo: Todo) => todo.id == item.id)
+        this.todos.splice(itemIndex, 1)
+      } catch (error) {
+        console.error(error)
+      }
     },
 
-    fetchTodos (): void {
-      // TODO: fetch from server
-      this.todos = [
-        {
-          id: '1',
-          done: false,
-          title: 'Item 1',
-          dueDate: null,
-          description: 'Item 1 description'
-        },
-        {
-          id: '2',
-          done: false,
-          title: 'Item 2',
-          dueDate: null,
-          description: 'Item 2 description'
-        },
-        {
-          id: '3',
-          done: false,
-          title: 'Item 3',
-          dueDate: null,
-          description: 'Item 3 description'
-        }
-      ]
+    async fetchItems (): Promise<void> {
+      try {
+        const response = await request.get('tasks')
+        this.todos = response.data
+      } catch (error) {
+        console.error(error)
+      }
     }
   }
 })
