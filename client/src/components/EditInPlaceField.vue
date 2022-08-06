@@ -5,9 +5,21 @@
       :name="`edit_in_place__${name}`"
       @submit.prevent="submit"
     >
-      <input
+      <textarea
+        v-if="isTextarea"
+        class="w-full p-2 bg-transparent"
         v-model="innerValue"
+        :name="name"
+        :rows="textareaRows"
+        @focus="lockEdit"
+        @focusout="submit"
+        @mouseleave="toggleUnlockedEdit"
+      >
+      </textarea>
+      <input
+        v-else
         class="text-slate-400 w-full h-full px-2 bg-transparent"
+        v-model="innerValue"
         :name="name"
         :type="type"
         @focus="lockEdit"
@@ -56,6 +68,19 @@ export default defineComponent({
       edit: false,
       editLocked: false,
       innerValue: this.modelValue
+    }
+  },
+
+  computed: {
+    isTextarea (): boolean {
+      return this.type === 'textarea'
+    },
+
+    textareaRows (): number {
+      const value = this.innerValue
+      const newLines = (value.match(/\n/g) || []).length
+      const ROW_OFFSET = 1
+      return newLines + ROW_OFFSET
     }
   },
 
