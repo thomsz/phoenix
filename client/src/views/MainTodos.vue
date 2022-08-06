@@ -50,7 +50,11 @@ export default defineComponent({
   computed: {
     filteredTodos (): Array<Todo> {
       const items = [...this.todos]
-      return items.filter((todo: Todo) => todo.title.toLowerCase().includes(this.searchQuery.toLowerCase())).reverse()
+      const filteredItems = items.filter((todo: Todo) => {
+        return todo.title.toLowerCase().includes(this.searchQuery.toLowerCase().trim())
+      })
+
+      return filteredItems.reverse()
     }
   },
 
