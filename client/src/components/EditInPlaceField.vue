@@ -3,7 +3,7 @@
     <form
       v-if="edit"
       :name="`edit_in_place__${name}`"
-      @submit.prevent="toggleEdit"
+      @submit.prevent="submit"
     >
       <input
         v-model="innerValue"
@@ -62,6 +62,8 @@ export default defineComponent({
   methods: {
     submit (): void {
       this.toggleEdit()
+
+      if (this.innerValue === this.modelValue) return
       this.$emit('update:modelValue', this.innerValue)
     },
 
