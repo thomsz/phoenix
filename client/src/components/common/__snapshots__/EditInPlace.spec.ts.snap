@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EditInPlace should render form element: text 1`] = `
+"<div class=\\"edit-in-place\\">
+  <div class=\\"p-2 text-slate-500\\" data-testid=\\"interactive-element\\">Fake value</div>
+</div>"
+`;
+
+exports[`EditInPlace should render form element: text 2`] = `
+"<div class=\\"edit-in-place\\">
+  <form name=\\"edit_in_place__fake_name\\"><input class=\\"text-slate-400 w-full h-full px-2 bg-transparent\\" name=\\"fake_name\\" type=\\"text\\"></form>
+</div>"
+`;
+
+exports[`EditInPlace should render form element: textarea 1`] = `
+"<div class=\\"edit-in-place\\">
+  <div class=\\"p-2 text-slate-500 whitespace-pre-wrap\\" data-testid=\\"interactive-element\\">Fake value</div>
+</div>"
+`;
+
+exports[`EditInPlace should render form element: textarea 2`] = `
+"<div class=\\"edit-in-place\\">
+  <form name=\\"edit_in_place__fake_name\\"><textarea class=\\"w-full p-2 bg-transparent\\" name=\\"fake_name\\" rows=\\"1\\">
+      </textarea></form>
+</div>"
+`;
