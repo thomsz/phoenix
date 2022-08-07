@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NewTodo should close modal 1`] = `
+"<form name=\\"new_todo\\">
+  <div class=\\"flex\\"><input name=\\"title\\" class=\\"w-full h-16 text-2xl px-2\\" required=\\"\\" placeholder=\\"Add a new task…\\">
+    <return-icon-stub class=\\"w-10 mx-2 fill-slate-200 hidden md:block\\"></return-icon-stub>
+  </div>
+  <transition-stub>
+    <new-todo-modal-stub modelvalue=\\"[object Object]\\"></new-todo-modal-stub>
+  </transition-stub>
+</form>"
+`;
+
+exports[`NewTodo should close modal 2`] = `
+"<form name=\\"new_todo\\">
+  <div class=\\"flex\\"><input name=\\"title\\" class=\\"w-full h-16 text-2xl px-2\\" required=\\"\\" placeholder=\\"Add a new task…\\">
+    <!--v-if-->
+  </div>
+  <transition-stub>
+    <!--v-if-->
+  </transition-stub>
+</form>"
+`;

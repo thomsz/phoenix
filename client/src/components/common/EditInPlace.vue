@@ -29,7 +29,9 @@
     </form>
     <div
       v-else
-      class="p-2 text-slate-500 whitespace-pre-wrap"
+      class="p-2 text-slate-500"
+      data-testid="interactive-element"
+      :class="{ 'whitespace-pre-wrap': isTextarea }"
       @click="toggleEdit"
       @mouseover="toggleEdit"
     >
@@ -44,7 +46,7 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'EditInPlaceField',
+  name: 'EditInPlace',
 
   props: {
     name: {

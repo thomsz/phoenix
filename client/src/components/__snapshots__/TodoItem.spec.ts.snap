@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TodoItem should render item done status: done 1`] = `
+"<article class=\\"hover:cursor-pointer hover:bg-slate-50 transition-colors duration-300 opacity-25\\">
+  <title-bar-stub modelvalue=\\"[object Object]\\"></title-bar-stub>
+  <!--v-if-->
+</article>"
+`;
+
+exports[`TodoItem should render item done status: undone 1`] = `
+"<article class=\\"hover:cursor-pointer hover:bg-slate-50 transition-colors duration-300\\">
+  <title-bar-stub modelvalue=\\"[object Object]\\"></title-bar-stub>
+  <!--v-if-->
+</article>"
+`;

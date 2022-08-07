@@ -80,8 +80,7 @@ export default defineComponent({
 
       try {
         const response = await request.post('tasks', item)
-        const createdItem = response.data
-
+        const createdItem: Todo = response.data
         this.resetForm()
         this.$emit('todo-created', createdItem)
       } catch (error) {

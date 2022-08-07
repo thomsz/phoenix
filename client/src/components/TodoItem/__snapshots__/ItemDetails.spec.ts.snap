@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ItemDetails should render details: with details 1`] = `
+"<div class=\\"p-4\\">
+  <div class=\\"edit-in-place min-h-[2.5rem]\\">
+    <div class=\\"p-2 text-slate-500 whitespace-pre-wrap\\" data-testid=\\"interactive-element\\"><span>Fake description</span></div>
+  </div>
+  <hr>
+  <div class=\\"edit-in-place min-h-[2.5rem]\\">
+    <div class=\\"p-2 text-slate-500\\" data-testid=\\"interactive-element\\"><span>8/20/2022</span></div>
+  </div>
+</div>"
+`;
+
+exports[`ItemDetails should render details: with missing details 1`] = `
+"<div class=\\"p-4\\">
+  <div class=\\"edit-in-place min-h-[2.5rem]\\">
+    <div class=\\"p-2 text-slate-500 whitespace-pre-wrap\\" data-testid=\\"interactive-element\\"><span class=\\"text-slate-200\\"> Add description </span></div>
+  </div>
+  <hr>
+  <div class=\\"edit-in-place min-h-[2.5rem]\\">
+    <div class=\\"p-2 text-slate-500\\" data-testid=\\"interactive-element\\"><span class=\\"text-slate-200\\"> Add due date </span></div>
+  </div>
+</div>"
+`;

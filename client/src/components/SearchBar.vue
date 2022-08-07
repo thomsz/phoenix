@@ -3,7 +3,7 @@
     name="search"
     class="px-2"
     v-model="innerValue"
-    placeholder="Search tasks..."
+    placeholder="Search tasks…"
     @keyup="$emit('update:modelValue', innerValue)"
   />
 </template>

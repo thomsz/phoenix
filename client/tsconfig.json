@@ -1,13 +1,14 @@
 {
   "files": [],
   "extends": "@vue/tsconfig/tsconfig.web.json",
-  "include": ["env.d.ts", "src/**/*", "src/**/*.vue", "src/**/*.ts"],
-  "exclude": ["src/**/__tests__/*"],
+  "include": ["src/env.d.ts", "src/**/*", "src/**/*.vue", "src/**/*.ts"],
   "compilerOptions": {
     "composite": true,
     "baseUrl": ".",
     "outDir": "./lib/",
     "rootDir": "./src",
+    "types": ["jest", "node"],
+    // "module": "es2022",
     "paths": {
       "@/*": ["./src/*"]
     }

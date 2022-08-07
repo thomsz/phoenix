@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MainTodos should render fetched tasks: no items 1`] = `
+"<main>
+  <new-todo-stub></new-todo-stub>
+  <search-bar-stub modelvalue=\\"\\"></search-bar-stub>
+  <div class=\\"mx-auto py-16 text-slate-400\\"> No tasks to show </div>
+</main>"
+`;
+
+exports[`MainTodos should render fetched tasks: with items 1`] = `
+"<main>
+  <new-todo-stub></new-todo-stub>
+  <search-bar-stub modelvalue=\\"\\"></search-bar-stub>
+  <div class=\\"divide-y\\">
+    <todo-item-stub item=\\"[object Object]\\"></todo-item-stub>
+  </div>
+</main>"
+`;

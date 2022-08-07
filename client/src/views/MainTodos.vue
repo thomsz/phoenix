@@ -11,7 +11,7 @@
         :key="item.id"
         :item="item"
         @item-changed="updateItem"
-        @delete-item-clicked="deleteItem(item)"
+        @delete-item-button-clicked="deleteItem(item)"
       />
     </div>
     <div

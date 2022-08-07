@@ -1,7 +1,9 @@
-import request, { AxiosInstance } from 'axios'
+import env from '@/services/env'
+import request from 'axios'
+import type { AxiosInstance } from 'axios'
 
 const generateRequestInstance = (): AxiosInstance => request.create({
-  baseURL: import.meta.env.VITE_API_URL
+  baseURL: env.API_URL
 })
 
 export default generateRequestInstance()

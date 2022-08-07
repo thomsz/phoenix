@@ -28,6 +28,7 @@
       <button
         type="button"
         class="action w-12 hover:bg-gray-300"
+        data-testid="close-button"
         @click="$emit('close-button-clicked')"
       >
         <XIcon class="close icon fill-slate-300" />
