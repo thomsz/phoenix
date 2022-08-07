@@ -2,9 +2,7 @@
   "include": [
     "src/env.d.ts",
     "src/**/*",
-    "src/**/*.vue",
-    "cypress/support/component.*",
-    "cypress/support/commands.ts"
+    "src/**/*.vue"
   ],
   "exclude": [],
   "compilerOptions": {
