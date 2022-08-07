@@ -6,7 +6,7 @@ const { v4: uuid } = require('uuid')
 const router = express.Router()
 
 router.get('/', (_, res) => {
-  fs.readFile(path.tasks, (error, data) => {
+  fs.readFile(path.tables.tasks, (error, data) => {
     if (error) {
       console.error('[GET:readFile]', error)
       res.sendStatus(500)
@@ -22,7 +22,7 @@ router.get('/', (_, res) => {
 })
 
 router.post('/', (req, res) => {
-  fs.readFile(path.tasks, (error, data) => {
+  fs.readFile(path.tables.tasks, (error, data) => {
     if (error) {
       console.error('[POST:readFile]', error)
       res.sendStatus(500)
@@ -38,7 +38,7 @@ router.post('/', (req, res) => {
       tasks.push(newTask)
       
       const updatedTasks = JSON.stringify(tasks, null, 2)
-      fs.writeFile(path.tasks, updatedTasks, error => {
+      fs.writeFile(path.tables.tasks, updatedTasks, error => {
         if (error) {
           console.error('[POST:writeFile]', error)
           res.sendStatus(500)
@@ -53,7 +53,7 @@ router.post('/', (req, res) => {
 })
 
 router.put('/:id', (req, res) => {
-  fs.readFile(path.tasks, (error, data) => {
+  fs.readFile(path.tables.tasks, (error, data) => {
     if (error) {
       console.error('[PUT:readFile]', error)
       res.sendStatus(500)
@@ -71,7 +71,7 @@ router.put('/:id', (req, res) => {
       tasks[taskIndexToUpdate] = updatedTask
 
       const updatedTasks = JSON.stringify(tasks, null, 2)
-      fs.writeFile(path.tasks, updatedTasks, error => {
+      fs.writeFile(path.tables.tasks, updatedTasks, error => {
         if (error) {
           console.error('[PUT:writeFile], error')
           res.sendStatus(500)
@@ -86,7 +86,7 @@ router.put('/:id', (req, res) => {
 })
 
 router.delete('/:id', (req, res) => {
-  fs.readFile(path.tasks, (error, data) => {
+  fs.readFile(path.tables.tasks, (error, data) => {
     if (error) {
       console.error('[DELETE:readFile]', error)
       res.sendStatus(500)
@@ -102,7 +102,7 @@ router.delete('/:id', (req, res) => {
 
       tasks.splice(taskIndexToDelete, 1)
       const updatedTasks = JSON.stringify(tasks, null, 2)
-      fs.writeFile(path.tasks, updatedTasks, error => {
+      fs.writeFile(path.tables.tasks, updatedTasks, error => {
         if (error) {
           console.error('[DELETE:writeFile], error')
           return

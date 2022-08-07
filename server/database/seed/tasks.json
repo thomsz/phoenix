@@ -1,0 +1,37 @@
+[
+  {
+    "done": false,
+    "title": "Delete me!",
+    "dueDate": "",
+    "description": "",
+    "id": "a2877cff-93d5-4941-b5a9-8cc16da0da84"
+  },
+  {
+    "done": true,
+    "title": "I am a completed task",
+    "dueDate": "2022-08-12T00:00:00.000Z",
+    "description": "",
+    "id": "f1c0e0e3-6df0-41b5-a47d-c60718bdc222"
+  },
+  {
+    "done": false,
+    "title": "Try to search for me :)",
+    "dueDate": "",
+    "description": "",
+    "id": "aa7aad26-c67c-4fab-b942-805e990dda65"
+  },
+  {
+    "done": false,
+    "title": "I am a task with no details",
+    "dueDate": "",
+    "description": "",
+    "id": "55e8a39c-1abb-4556-b701-b36e51cffab8"
+  },
+  {
+    "done": false,
+    "title": "I am a task with a lot of details",
+    "dueDate": "2022-08-12T00:00:00.000Z",
+    "description": "And I have a cool description\nwith\nmultiple\nlines\n\njust click to edit me",
+    "id": "a54530ff-d622-4b71-ae68-a7efd084adc4"
+  }
+]

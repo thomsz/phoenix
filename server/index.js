@@ -9,7 +9,7 @@ const database = require('./database')
 const app = express()
 const PORT = process.env.PORT || 3000
 
-database.init()
+database.seed()
 app.use(cors())
 app.use(bodyParser.json())
 app.use('/api', router)
