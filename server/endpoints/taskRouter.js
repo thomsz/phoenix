@@ -1,4 +1,4 @@
-const fs = require('fs')
+const fs = require('../services/file-system')
 const path = require('../database/path')
 const express = require('express')
 const { v4: uuid } = require('uuid')
@@ -6,28 +6,18 @@ const { v4: uuid } = require('uuid')
 const router = express.Router()
 
 router.get('/', (_, res) => {
-  fs.readFile(path.tables.tasks, (error, data) => {
-    if (error) {
-      console.error('[GET:readFile]', error)
-      res.sendStatus(500)
-    }
-
+  fs.read(path.tables.tasks, data => {
     try {
       const tasks = JSON.parse(data)
       res.send(tasks)
     } catch (error) {
-      console.error('[GET:readFile]', error)
+      console.error(error)
     }
   })
 })
 
 router.post('/', (req, res) => {
-  fs.readFile(path.tables.tasks, (error, data) => {
-    if (error) {
-      console.error('[POST:readFile]', error)
-      res.sendStatus(500)
-    }
-
+  fs.read(path.tables.tasks, data => {
     try {
       const tasks = JSON.parse(data)
       const newTask = {
@@ -36,62 +26,41 @@ router.post('/', (req, res) => {
       }
 
       tasks.push(newTask)
-      
       const updatedTasks = JSON.stringify(tasks, null, 2)
-      fs.writeFile(path.tables.tasks, updatedTasks, error => {
-        if (error) {
-          console.error('[POST:writeFile]', error)
-          res.sendStatus(500)
-        }
-        
+      fs.write(path.tables.tasks, updatedTasks, () => {
         res.status(201).send(newTask)
       })
     } catch (error) {
-      console.error('[POST:readFile]', error)
+      console.error(error)
     }
   })
 })
 
 router.put('/:id', (req, res) => {
-  fs.readFile(path.tables.tasks, (error, data) => {
-    if (error) {
-      console.error('[PUT:readFile]', error)
-      res.sendStatus(500)
-    }
-
+  fs.read(path.tables.tasks, data => {
     try {
       const tasks = JSON.parse(data)
       const taskIndexToUpdate = tasks.findIndex(task => task.id === req.params.id)
-
+    
       if (taskIndexToUpdate < 0) {
         res.sendStatus(404)
       }
-
+    
       const updatedTask = req.body
       tasks[taskIndexToUpdate] = updatedTask
-
+    
       const updatedTasks = JSON.stringify(tasks, null, 2)
-      fs.writeFile(path.tables.tasks, updatedTasks, error => {
-        if (error) {
-          console.error('[PUT:writeFile], error')
-          res.sendStatus(500)
-        }
-
+      fs.write(path.tables.tasks, updatedTasks, () => {
         res.send(updatedTask)
       })
     } catch (error) {
-      console.error('[PUT:readFile]', error)
+      console.error(error)
     }
   })
 })
 
 router.delete('/:id', (req, res) => {
-  fs.readFile(path.tables.tasks, (error, data) => {
-    if (error) {
-      console.error('[DELETE:readFile]', error)
-      res.sendStatus(500)
-    }
-
+  fs.read(path.tables.tasks, data => {
     try {
       const tasks = JSON.parse(data)
       const taskIndexToDelete = tasks.findIndex(task => task.id === req.params.id)
@@ -102,16 +71,11 @@ router.delete('/:id', (req, res) => {
 
       tasks.splice(taskIndexToDelete, 1)
       const updatedTasks = JSON.stringify(tasks, null, 2)
-      fs.writeFile(path.tables.tasks, updatedTasks, error => {
-        if (error) {
-          console.error('[DELETE:writeFile], error')
-          return
-        }
-
+      fs.write(path.tables.tasks, updatedTasks, () => {
         res.sendStatus(204)
       })
     } catch (error) {
-      console.error('[DELETE:readFile]', error)
+      console.error(error)
     }
   })
 })
