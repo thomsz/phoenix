@@ -22,7 +22,7 @@ jest.mock('@/services/request', () => ({
         return Promise.reject()
     }
   },
-  put: jest.fn().mockResolvedValue({}),
+  put: jest.fn(),
   delete: jest.fn()
 }))
 

@@ -6,14 +6,14 @@ import TodoItem from '@/components/TodoItem.vue'
 import TitleBar from '@/components/TodoItem/TitleBar.vue'
 import ItemDetails from '@/components/TodoItem/ItemDetails.vue'
 
-const mountingOptions = {
-  props: {
-    item: factory.generate('Todo')
-  }
-}
-
 describe('TodoItem', () => {
-  [
+  const mountingOptions = {
+    props: {
+      item: factory.generate('Todo')
+    }
+  }
+
+  ;[
     ['done', true],
     ['undone', false]
   ].forEach(([descriptor, isDone]) => {

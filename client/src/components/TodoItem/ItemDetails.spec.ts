@@ -1,25 +1,26 @@
+import factory from '@/tests/services/factory'
 import { faker } from '@faker-js/faker'
 import { mount, shallowMount } from '@vue/test-utils'
 
-import factory from '@/tests/services/factory'
 import ItemDetails from '@/components/TodoItem/ItemDetails.vue'
 
 import type Todo from '@/types/Todo'
 
-const fakeItem: Todo = {
-  ...factory.generate('Todo'),
-  dueDate: '2022-08-20T10:15:59.765Z',
-  description: 'Fake description'
-}
-
-const fakeItemWithMissingData: Todo = {
-  ...fakeItem,
-  dueDate: '',
-  description: ''
-}
 
 describe('ItemDetails', () => {
-  [
+  const fakeItem: Todo = {
+    ...factory.generate('Todo'),
+    dueDate: '2022-08-20T10:15:59.765Z',
+    description: 'Fake description'
+  }
+  
+  const fakeItemWithMissingData: Todo = {
+    ...fakeItem,
+    dueDate: '',
+    description: ''
+  }
+
+  ;[
     ['with details', fakeItem],
     ['with missing details', fakeItemWithMissingData]
   ].forEach(([descriptor, item]) => {

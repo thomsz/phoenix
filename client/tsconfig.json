@@ -8,7 +8,6 @@
     "outDir": "./lib/",
     "rootDir": "./src",
     "types": ["jest", "node"],
-    // "module": "es2022",
     "paths": {
       "@/*": ["./src/*"]
     }

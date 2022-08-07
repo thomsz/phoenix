@@ -7,7 +7,6 @@ module.exports = {
   transform: {
     '^.+\\.ts?$': 'ts-jest',
     '^[^.]+.vue$': '@vue/vue3-jest'
-    // '^.+\\.js$': 'babel-jest'
   },
   transformIgnorePatterns: ['<rootDir>/node_modules/'],
   roots: ['<rootDir>/src'],
@@ -15,6 +14,5 @@ module.exports = {
   moduleDirectories: ['node_modules', 'src'],
   moduleNameMapper: {
     '@/(.*)': '<rootDir>/src/$1'
-    // '@/*': '<rootDir>/src'
   }
 }

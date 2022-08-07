@@ -4,13 +4,13 @@ import { shallowMount } from '@vue/test-utils'
 import NewTodoModal from '@/components/NewTodo/NewTodoModal.vue'
 
 describe('NewTodoModal', () => {
-  const fakeItem = factory.generate('Todo')
+  const { title, dueDate, description } = factory.generate('Todo')
   const mountingOptions = {
     props: {
       modelValue: {
-        title: fakeItem.title,
-        dueDate: fakeItem.dueDate,
-        description: fakeItem.description
+        title,
+        dueDate,
+        description
       }
     }
   }

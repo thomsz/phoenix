@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`NewTodo should close modal 1`] = `
-"<form name=\\"new_todo\\">
+"<form name=\\"new_todo\\" class=\\"flex flex-col relative z-10\\">
   <div class=\\"flex\\"><input name=\\"title\\" class=\\"w-full h-16 text-2xl px-2\\" required=\\"\\" placeholder=\\"Add a new task…\\">
     <return-icon-stub class=\\"w-10 mx-2 fill-slate-200 hidden md:block\\"></return-icon-stub>
   </div>
@@ -12,7 +12,7 @@ exports[`NewTodo should close modal 1`] = `
 `;
 
 exports[`NewTodo should close modal 2`] = `
-"<form name=\\"new_todo\\">
+"<form name=\\"new_todo\\" class=\\"flex flex-col relative z-10\\">
   <div class=\\"flex\\"><input name=\\"title\\" class=\\"w-full h-16 text-2xl px-2\\" required=\\"\\" placeholder=\\"Add a new task…\\">
     <!--v-if-->
   </div>

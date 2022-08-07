@@ -104,6 +104,7 @@ describe('EditInPlace', () => {
         const elementWrapper = wrapper.find(element)
         elementWrapper.setValue(submittedValue)
         await elementWrapper.trigger('focusout')
+
         expect(wrapper.find('form').exists()).toBe(false)
         expect(wrapper.find('[data-testid="interactive-element"]').exists()).toBe(true)
         expect(wrapper.emitted('update:modelValue')?.[0][0]).toBe(shouldUpdateModelValue ? submittedValue : undefined)

@@ -1,6 +1,7 @@
  <template>
   <form
     name="new_todo"
+    class="flex flex-col relative z-10"
     @submit.prevent="createTodo"
   >
     <div class="flex">
@@ -86,17 +87,12 @@ export default defineComponent({
       } catch (error) {
         console.error(error)
       }
-
     }
   }
 })
 </script>
 
 <style scoped>
-form {
-  @apply flex flex-col relative z-10;
-}
-
 .fade-enter-active {
   @apply duration-300 ease-out;
 }
