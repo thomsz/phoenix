@@ -15,7 +15,7 @@ Backend
 - Node.js
 - Express.js
 
-## Intallations
+## Installations
 
 1. Clone
 2. From the root directory run `npm install` from the terminal
